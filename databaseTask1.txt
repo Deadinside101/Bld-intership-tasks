@@ -1,0 +1,10 @@
+CREATE TABLE Student 
+  ( 
+    id  INT not NULL ,
+    first_name varchar(32) , 
+    last_name varchar(32) ,
+    age INT , CHECK (age>=16),
+    UNIQUE ( first_name, last_name ),
+    PRIMARY KEY (id)
+  );
+
