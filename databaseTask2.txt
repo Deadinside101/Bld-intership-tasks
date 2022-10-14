@@ -1,0 +1,51 @@
+/*
+ one to one Relationship: User has one address
+*/
+CREATE TABLE student
+(
+studentID INT  PRIMARY KEY,
+Name VARCHAR(100),
+grade INT
+);
+
+CREATE TABLE worksheet
+(
+sheetId INT PRIMARY KEY,
+subjectName VARCHAR(100),
+Fk_sheet_Id INT UNIQUE FOREIGN KEY REFERENCES student(studentID)
+);
+
+/*
+ one to many Relationship: car can have multiple Engineers
+*/
+CREATE TABLE Car
+(
+Pk_Car_Id INT PRIMARY KEY,
+Brand VARCHAR(100),
+Model VARCHAR(100)
+);
+CREATE TABLE Engineer
+(
+Pk_Engineer_Id INT PRIMARY KEY,
+FullName VARCHAR(100),
+MobileNo CHAR(11),
+Fk_Car_Id INT FOREIGN KEY REFERENCES Car(Pk_Car_Id)
+);
+
+
+
+/*
+ many to many Relationship: 
+*/
+CREATE TABLE class(
+classId INT(10) PRIMARY KEY,
+course VARCHAR(100),
+);
+
+CREATE TABLE StudentClassRelation(
+studentId INT(15) NOT NULL,
+classId INT(14) NOT NULL,
+FOREIGN KEY (studentId) REFERENCES student(studentI),
+FOREIGN KEY (classId) REFERENCES class(classId),
+UNIQUE (studentId, classId)
+);
